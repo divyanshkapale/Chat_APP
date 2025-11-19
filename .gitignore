@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 node_modules
 .env
 kdhknfsd
-=======
-=======
->>>>>>> 96b1c616337ae11583736fed6fe639a5a155b484
 # Logs
 logs
 *.log
@@ -30,7 +25,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
->>>>>>> 96b1c61 (Chat setup Completed)
-=======
->>>>>>> 96b1c616337ae11583736fed6fe639a5a155b484
