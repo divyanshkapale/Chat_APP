@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Full stack real-time chat application",
     "scripts": {
-        "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' npm run build:frontend && npm run build:backend",
+        "build": "npm run build:frontend && npm run build:backend",
         "build:frontend": "npm install --production=false --legacy-peer-deps --prefix frontend && npm run build --prefix frontend",
         "build:backend": "npm install --legacy-peer-deps --prefix backend",
         "start": "npm start --prefix backend",
