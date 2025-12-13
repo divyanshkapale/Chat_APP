@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Full stack real-time chat application",
     "scripts": {
-        "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
+        "build": "npm install --production=false --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
         "start": "npm start --prefix backend",
         "dev": "npm run dev --prefix backend"
     },
