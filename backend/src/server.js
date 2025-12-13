@@ -23,17 +23,28 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 app.use(cookieParser());
 
 import path from "path";
+import { fileURLToPath } from "url";
+
+// ... existing imports ...
+// (We keep the imports as they are in the file, we are just replacing the block below app.use routes)
 
 app.use("/api/auth", authRoute);
 app.use("/api/messages", messageRoute);
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("__dirname:", __dirname);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  const frontendPath = path.join(__dirname, "../../frontend/dist");
+  console.log("Serving static files from:", frontendPath);
+
+  app.use(express.static(frontendPath));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+    res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
 
