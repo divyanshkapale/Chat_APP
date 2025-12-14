@@ -3,17 +3,12 @@
     "version": "1.0.0",
     "description": "Full stack real-time chat application",
     "scripts": {
-        "build": "bash render-build.sh",
-        "build:frontend": "npm install --production=false --legacy-peer-deps --prefix frontend && NODE_OPTIONS='--max-old-space-size=4096' npm run build --prefix frontend",
-        "build:backend": "npm install --legacy-peer-deps --prefix backend",
+        "build": "npm install --prefix frontend --include=dev --legacy-peer-deps && npm run build --prefix frontend && npm install --prefix backend --legacy-peer-deps",
         "start": "npm start --prefix backend",
         "dev": "npm run dev --prefix backend"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {},
-    "engines": {
-        "node": ">=20.0.0"
-    }
+    "dependencies": {}
 }
