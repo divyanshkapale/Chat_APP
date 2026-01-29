@@ -4,6 +4,7 @@ export const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
     console.log(`MONGODB CONNECTED: ${conn.connection.host}`);
+    console.log(`DATABASE NAME: ${conn.connection.name}`);
   } catch (error) {
     console.error("MongoDB Connection Error:", error);
     // Exit process with failure so Render knows the service is unhealthy
