@@ -19,5 +19,7 @@ services:
         sync: false
       - key: CLIENT_URL
         sync: false
+      - key: ARCJET_KEY
+        sync: false
       - key: NODE_OPTIONS
         value: --max-old-space-size=4096

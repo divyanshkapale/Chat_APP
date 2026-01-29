@@ -72,6 +72,20 @@ if (fs.existsSync(frontendPath)) {
   });
 }
 
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+// Deployment Logic
+// ... (Deployment Logic remains same)
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error("Unhandled Error:", err);
+  res.status(500).json({ message: "Internal Server Error", error: err.message });
+});
+
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   connectDB();
