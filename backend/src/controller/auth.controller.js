@@ -70,7 +70,7 @@ export const signup = async (req, res) => {
     }
   } catch (error) {
     console.log("Error in Signup Controller:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 };
 
@@ -104,7 +104,7 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Error in Login Controller:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 };
 
@@ -123,14 +123,14 @@ export const updateProfile = async (req, res) => {
     }
     const userId = req.user._id;
     const uploadResponse = await cloudinary.uploader.upload(profilePic);
-    const updatedUser=await User.findByIdAndUpdate(
+    const updatedUser = await User.findByIdAndUpdate(
       userId,
       { profilePic: uploadResponse.secure_url },
       { new: true }
     );
     return res.status(200).json(updatedUser)
   } catch (error) {
-    console.log("Error in Updated Profile",error);
-    res.status(500).json({message:"Internal Server Error"})
+    console.log("Error in Updated Profile", error);
+    res.status(500).json({ message: "Internal Server Error" })
   }
 };
