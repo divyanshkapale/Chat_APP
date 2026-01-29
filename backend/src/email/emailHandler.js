@@ -9,9 +9,9 @@ export const sendWelcomeEmail = async (email, name, clientURL) => {
     subject: "Welcome To Chat APP",
     html: createWelcomeEmailTemplate(name, clientURL),
   });
-  if(error){
-    console.error("Error Sending Welcome Email",error);
-    throw new error("failed to send welcome email")
+  if (error) {
+    console.error("Error Sending Welcome Email", error);
+    throw new Error("failed to send welcome email")
   }
-  console.log("welcome Email Send Successfully",data)
+  console.log("welcome Email Send Successfully", data)
 };
